@@ -1,3 +1,14 @@
+@font-face {
+  font-family: UberMoveText;
+  src: url("../fonts/UberMove.eot");
+  src: local(""),
+    url("../fonts/UberMove.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/UberMove.woff2") format("woff2"),
+    url("../fonts/UberMove.woff") format("woff"),
+    url("../fonts/UberMove.ttf") format("truetype"),
+    url("../fonts/UberMove.svg#UberMoveText") format("svg");
+}
+
 *,
 *::before,
 *::after {
@@ -21,8 +32,8 @@ html {
 }
 
 body {
-  font-family: system-ui, -apple-system, "system-ui", "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: UberMoveText, system-ui, -apple-system, "system-ui", "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   line-height: inherit;
 }
 

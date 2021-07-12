@@ -1,27 +1,64 @@
 import React from "react";
 import styled from "styled-components";
+import SideCta from "./sideCta";
 
 const Wrapper = styled.nav`
-  margin-left: 1rem;
+  height: 100%;
+
+  .sidebar-flex {
+    display: flex;
+    height: 100%;
+    width: auto;
+    position: relative;
+    z-index: 6;
+  }
 
   .sidebar-btn-container {
-    width: 24px;
-    height: 20px;
+    margin: auto;
+    width: auto;
+    height: 100%;
     background: transparent;
 
     button {
       width: 100%;
       height: 100%;
+      padding: 10px;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
+      align-items: center;
       border: none;
+      border-radius: 50%;
+      background: ${({ isShowing }) =>
+        isShowing ? "rgb(84, 84, 84)" : "transparent"};
+
+      :hover {
+        background: #333333;
+        border-radius: 50%;
+        transition: background 0.2s ease-in;
+      }
+
+      :focus {
+        outline: none;
+      }
     }
 
     .menu-btn {
-      width: 14px;
+      margin-top: 1px;
+      width: 18px;
       height: 2px;
       background: #fff;
+      transform-origin: 4.5px;
+
+      :first-child {
+        transform: ${({ isShowing }) =>
+          isShowing ? "rotate(45deg)" : "rotate(0)"};
+      }
+
+      :nth-child(2) {
+        transform: ${({ isShowing }) =>
+          isShowing ? "rotate(-45deg)" : "rotate(0)"};
+      }
     }
   }
 
@@ -29,17 +66,17 @@ const Wrapper = styled.nav`
     position: absolute;
     top: 0;
     left: 0;
-    border: 1px solid blue;
     width: 100vw;
-    margin-top: 64px;
-    height: calc(100vh - 64px);
+    margin-top: 70px;
+    height: calc(100vh - 70px);
     background: #fff;
     color: #000;
     padding: 0 24px;
-    display: ${({ isShowing }) => (!isShowing ? "none" : "block")};
-    transition: all 0.3s ease-in-out;
+    z-index: 4;
+    transition: all 0.4s ease;
     transform: ${({ isShowing }) =>
-      !isShowing ? "translateY(-100%)" : "translateY(0%)"};
+      !isShowing ? "translateY(-100%)" : "translateY(0)"};
+    opacity: ${({ isShowing }) => (isShowing ? "1" : "0")};
   }
 
   .sidebar-list {
@@ -80,11 +117,14 @@ const Wrapper = styled.nav`
 export default function Sidebar({ menuShowing, setMenuShowing }) {
   return (
     <Wrapper className="sidebar" isShowing={menuShowing}>
-      <div className="sidebar-btn-container">
-        <button onClick={() => setMenuShowing(!menuShowing)}>
-          <div className="menu-btn" />
-          <div className="menu-btn" />
-        </button>
+      <div className="sidebar-flex">
+        <SideCta />
+        <div className="sidebar-btn-container">
+          <button onClick={() => setMenuShowing(!menuShowing)}>
+            <div className="menu-btn" />
+            <div className="menu-btn" />
+          </button>
+        </div>
       </div>
       <div className="sidebar-list-container">
         <ul className="sidebar-list">

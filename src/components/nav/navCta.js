@@ -39,7 +39,7 @@ export default function NavCta() {
     <Wrapper>
       <div className="cta-desktop"></div>
       <div className="cta-show">
-        <Icons width={avtr.w} height={avtr.h} viewBox={avtr.v} p={avtr.p} />
+        <Icons f={avtr.f} c={avtr.c} p={avtr.p} />
         <button>Sign up</button>
       </div>
     </Wrapper>
