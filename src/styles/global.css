@@ -219,6 +219,7 @@ a {
   text-decoration: inherit;
   cursor: pointer;
   margin: 0;
+  font-size: 17px;
 }
 
 button,
